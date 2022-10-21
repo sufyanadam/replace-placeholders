@@ -1,0 +1,18 @@
+name: 'replace-placeholders'
+description: 'Replaces placeholders in all files in the given directory matching the given filename pattern'
+inputs:
+  placeholders:
+    description: 'A list of the PLACEHOLDER: REPLACEMENT as a JSON object. Example: {"<NAMESPACE>": "my-namespace"}'
+    required: true
+  search-directory:
+    description: 'The directory containing the files to replace all occurrences of given placeholders'
+    required: true
+  filename-pattern:
+    description: 'A string representing the glob pattern of filenames to match for when searching for files to replace. Example: *.yml'
+    required: true
+outputs:
+  time: # output will be available to future steps
+    description: 'The current time after waiting'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
