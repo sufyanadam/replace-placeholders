@@ -1,4 +1,4 @@
-name: 'replace-placeholders'
+name: 'replace-placeholders action'
 description: 'Replaces placeholders in all files in the given directory matching the given filename pattern'
 inputs:
   placeholders:
