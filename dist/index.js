@@ -2830,9 +2830,9 @@ const cp = __nccwpck_require__(129);
 
 const run = async () => {
   try {
-    const placeholders = JSON.parse(core.getInput('placeholders', {required: true}));
-    const filenamePattern = core.getInput('filename-pattern',     {required: true});
-    const searchDirectory = core.getInput('search-directory',     {required: true});
+    const placeholders = JSON.parse(core.getInput('placeholders'));
+    const filenamePattern = core.getInput('filename-pattern') || core.getInput('filename_pattern'); // setting process.env['INPUT_FILENAME-PATTERN'] in tests doesn't work, so we have to support both dash-cased and snake_cased input names for now.
+    const searchDirectory = core.getInput('search-directory') || core.getInput('search_directory'); //
     const commands = Object.keys(placeholders).map((placeholder) => {
       return `find ${searchDirectory} -name "${filenamePattern}" | xargs sed -i --follow-symlinks "s/${placeholder}/${placeholders[placeholder]}/g"`
     });

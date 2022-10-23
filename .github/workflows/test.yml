@@ -1,4 +1,4 @@
-name: "units-test"
+name: "end-to-end tests"
 on:
   pull_request:
   push:
@@ -8,13 +8,13 @@ on:
       - 'releases/*'
 
 jobs:
-  units:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - run: npm ci
     - run: npm test
-  test:
+  end-to-end-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
