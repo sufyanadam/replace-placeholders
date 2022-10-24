@@ -2834,7 +2834,7 @@ const run = async () => {
     const filenamePattern = core.getInput('filename-pattern') || core.getInput('filename_pattern'); // setting process.env['INPUT_FILENAME-PATTERN'] in tests doesn't work, so we have to support both dash-cased and snake_cased input names for now.
     const searchDirectory = core.getInput('search-directory') || core.getInput('search_directory'); //
     const commands = Object.keys(placeholders).map((placeholder) => {
-      return `find ${searchDirectory} -name "${filenamePattern}" | xargs sed -i --follow-symlinks "s/${placeholder}/${placeholders[placeholder]}/g"`
+      return `find ${searchDirectory} -name "${filenamePattern}" | xargs sed -i --follow-symlinks "s|${placeholder}|${placeholders[placeholder]}|g"`
     });
 
     cp.execSync(commands.join("\n"), {encoding: 'utf-8'});
