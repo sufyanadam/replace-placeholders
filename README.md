@@ -19,7 +19,7 @@ passed in as a JSON string. For example:
 ## Usage in your workflow
 
 ```
-  - uses: sufyanadam/replace-placeholders@v2
+  - uses: sufyanadam/replace-placeholders@v3
     with:
       placeholders: |
         {
