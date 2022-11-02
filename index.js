@@ -11,7 +11,7 @@ const run = async () => {
     });
 
     cp.execSync(commands.join("\n"), {encoding: 'utf-8'});
-    const result = cp.execSync(`cat ${searchDirectory}/${filenamePattern}`).toString();
+    const result = cp.execSync(`find ${searchDirectory} -name "${filenamePattern}" | xargs cat`).toString();
     console.log(result);
   } catch (error) {
     core.setFailed(error.message);
