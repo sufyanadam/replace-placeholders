@@ -2,6 +2,8 @@
 
 # Replace Placeholders GitHub Action
 
+Find and replace for GitHub Actions. Ever wish you could run `sed s/FIND/REPLACE/g` 
+recursively in a directory of your project? This action is for you!
 Replace all occurrences of placeholders found in files of the provided directory
 matching the provided filename pattern with the provided replacement values.
 
